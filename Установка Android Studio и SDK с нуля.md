@@ -6,8 +6,6 @@
 - Open JDK  не установлен
 - Flutter SDK не установлен
 - Домашний каталог всех эмуляторов AVD должен быть - D:\wirt\project\flutter_projects\android_avd
-
-
 ##### **Этап 1. Установка Android Studio**
 ###### **1.1. Скачивание и установка Android Studio**
 Перейди на сайт: https://developer.android.com/studio    
@@ -143,3 +141,66 @@ Settings → Languages & Frameworks есть раздел Flutter — значи
 - С заголовком: Flutter Demo Home Page
 - С текстом: You have pushed the button this many times:
 - Кнопкой + внизу справа
+##### **Этап 3. Настройка VC code  для разработки в flutter приложении**
+###### **3.1. Запуск VS Code**
+Через ярлык в меню пуск
+###### **3.2. Установить плагины  Flutter, Dart, Material Icon Theme.**
+В левом меню нажать иконку квадратика с четырьмя гранями (Extensions) -> в строке поиска (Material Icon Theme) -> Install => После установки появится кнопка "Set File Icon Theme" (“Установить тему иконок”) -> нажать -> в поле выше выбрать Material Icon Theme
+###### **3.3. Установка нового проекта**
+Ctrl + Shift + P → Flutter: New Project -> Выбрать Flutter Application -> Указать путь: D:\wirt\project\flutter_projects -> ввести имя нового проекта - hello_flutter -> Enter =>
+рабочее окно с файлом `main.dart`, кнопками устройств внизу и возможностью запускать проект.
+**Запуск проекта.**
+Menu -> Run -> Start Debugging (F5) => должно появится окно выбора эмулятора -> выбираем Pixel_6_Pro (android-x64 emulator) 
+
+
+
+
+
+
+
+
+
+
+
+Проверка наличия эмулятора AVD (ANDROID_AVD_HOME = D:\android_avd)**
+Git Bach -> flutter emulators -> Pixel_6_Pro • Pixel 6 Pro • Google • android
+###### **3.2. Запуск эмулятора из PowerShell в VS Code**
+**Запуск VS Code**
+**Открыть папку с Flutter-проектом**
+- File (Файл) → перейти к проекту D:\wirt\project\flutter_projects\flutter_first -> Open Folder
+
+
+
+Ctrl + Shift + P → Flutter: New Project
+
+Выбери Application
+
+Укажи путь, например:
+
+makefile
+Копировать
+Редактировать
+D:\wirt\project\flutter_projects\first_app
+Дождись создания проекта
+
+▶️ ШАГ 6. ЗАПУСК НА ЭМУЛЯТОРЕ
+Выбери устройство снизу слева (например, Pixel_6_API_34)
+
+Нажми F5 или Run → Start Debugging
+
+Приложение запустится на Android эмуляторе
+
+✅ РЕЗУЛЬТАТ
+Компонент	Состояние
+AVD создан и виден	✅
+Flutter SDK настроен	✅
+VS Code настроен	✅
+Запуск приложения	✅ через F5
+
+Готов выдать команду на создание первого проекта с конкретным путём и примером, если нужно — подтвердите.
+
+**Проверка текущих AVD**
+D:\progi\src\Android\Sdk\cmdline-tools\latest\bin\avdmanager.bat list avd
+
+ **Удаление всех AVD**
+ 
