@@ -9,8 +9,9 @@
 	- D:\progi\src — каталог установки всего ПО
 	- D:\progi\src\android_avd — каталог, где будут храниться эмуляторы AVD
 	- D:\progi\src\Android — будущая установка Android SDK
-	- D:\progi\src\jdk — будет путь к OpenJDK
-	- D:\progi\src\flutter — Flutter SDK
+	- D:\progi\src\OpenJDK — будет путь к OpenJDK
+	- D:\progi\src\flutter — путь к Flutter SDK
+	- D:\progi\src\VSCode — путь к VSCode
 	- D:\Python\Python3_13_4 — уже установлен
 	- D:\wirt\project\flutter_projects - будут создаваться все проекты 
 ##### **Этап 1. Подготовительный этап**
@@ -31,7 +32,7 @@
 ###### **1.2. Убедиться, что Git корректно установлен и доступен из командной строки**
 PowerShell -> git --version => git version 2.50.0.windows.1
 Настроить глобальные параметры Git:
-- git config --global user.name "Ваше имя"
+- git config --global user.name "Serg"
 - git config --global user.email "swik591962@gmail.com"
 ##### **Этап 2. Установка Java OpenJDK**
 ###### **2.1. Скачивание и установка OpenJDK (версия, совместимая с Android Studio)**
@@ -53,60 +54,77 @@ OpenJDK 17 (LTS) - полностью поддерживается Android Studi
 ###### **3.2. Установка в каталог D:\progi\src\android-studio**
 Запуск установки от имени администратора.=> окно Welcome to Android Studio Setup -> Next 
 Окно "Choose Components" -> оставь галочки на Android SDK, Virtual Device -> Next  
-Окно Android Studio Setup -> установить вручную путь: D:\progi\src\android-studio -> Next
--> install  -> Next -> Finish (не запуская)
+Окно "Configuration Setting" -> установить вручную путь: D:\progi\src\android-studio -> Next
+Окно "Choose Start Menu Folder" -> install  
+Окно "Installation Complete" -> Next
+Окно "Complete Android Studio Setup"-> убрать v окна Start Android Studi -> Finish (не запуская)
 ###### **3.3. При первом запуске: установка Android SDK, SDK Platform Tools, SDK Build Tools, SDK Manager, настройка локалей (набор параметров, определяющих язык)**
 **3.3.1: Запуск Android Studio, выбор типа установки. указание пути SDK: D:\progi\src\Android\Sdk при установке,  установка SDK с компонентами.**
-Запусти Android Studio-> окно Welcome Android Studio -> Next -> 
-Окно Instal Type -> Custom -> Custom -> Next
-Окно "SDK Components Setup":
- - Установить путь: D:\progi\src\Android\Sdk
+Запусти Android Studio-> окно Welcome Android Studio -> Next 
+Окно Instal Type -> Custom -> Next
+Окно "Components Setup" -> 
+- Установка Android SDK Location: D:\progi\src\Android\Sdk
 - Убедится, что выбрано:
     - ✅ Android SDK
     - ✅ Android SDK Platform-Tools (Android 15.0 - это API 35)
     - ✅ Performance (Android Emulator, hypervisor driver)
-    - ==✅ Android Virtual Device (AVD)==
-Next -> Next -> Accept -> Finish => Android Studio скачает SDK и установит всё в D:\progi\src\Android\Sdk
+    - ✅ Android Virtual Device (AVD)
+Next -> 
+Окно "Werify Setting" -> Next
+Окно "License Agreement" -> Accept -> Finish => Android Studio скачает SDK и установит всё в D:\progi\src\Android\Sdk -> Finish
 **3.3.2. Проверка установки SDK, Platform Tools, Emulator через SDK Manager**
-После завершения загрузки компонентов (может занять 2–5 мин), откроется окно Android Studio -> More Actions → SDK Manager
-Вкладка SDK Platforms:
+После завершения загрузки компонентов (может занять 2–5 мин), откроется окно Welcome to Android Studio -> More Actions → SDK Manager
+Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Platforms:
 - Android SDK Location: D:\progi\src\Android\Sdk
 - Android 15
-Вкладка SDK Tools:
+Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Tools:
 - ✅ Android SDK Build-Tools
 - ✅ Android Emulator
 - ✅ Android Command-line Tools
 - ✅ Google USB Driver (если требуется)
 Apply -> OK
+Окно " SDK Components Instaler" -> Finish
+Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Platforms: -> OK
 ###### **3.4. Настройка среды AVD через переменную ANDROID_AVD_HOME**
 Завершить все процессы Android Studio перед изменением переменной.
 Создай каталог для AVD - D:\progi\src\android_avd
 Создать переменную среды ANDROID_AVD_HOME - D:\progi\src\android_avd
 Проверка PowerShell -> echo $env:ANDROID_AVD_HOME => D:\progi\src\android_avd
-Создать AVD: Открыть Android Studio -> Welcome to Android Studio → More Actions → Device Manager -> + (Create Device) => окно Add Device -> выбрать Pixel 5 -> Next -> выбрать API 35 - Android 15.0 -> Finish => AVD должен быть создан в: D:\progi\src\android_avd\.android\avd -> Finish
+Создать AVD: Открыть Android Studio -> 
+Окно "Welcome to Android Studio" → More Actions → Device Manager 
+Окно "Device Manager" -> + (Create Device) 
+Окно "Add Device" -> выбрать Pixel 5 -> Next 
+Окно "Configure Virtual Device"-> выбрать API 35 - Android 15.0 -> Finish => AVD должен быть создан в: D:\progi\src\android_avd\.android\avd 
+Окно " SDK Components Instaler" -> Finish
+Окно "Device Manager" -> появился AVD Pixel 5
 D:\progi\src\android_avd\.android\avd -> должны быть файл .ini и каталог Pixel_5.avd
 ##### **Этап 4. Настройка Android SDK**
 ###### **4.1. Установка SDK платформ (Android 12 / 13)**
-Запустить Android Studio -> откроется окно Welcome Android Studio -> More Actions → SDK Manager -> SDK Platforms:
+Запустить Android Studio -> откроется окно Welcome Android Studio -> More Actions → SDK Manager
+Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Platforms:
 - ✅ Android 13.0 (Tiramisu) — API Level 33
 - ✅ Android 12.0 (Snow Cone) — API Level 31
-Apply -> OK => Android Studio скачает и установит необходимые SDK платформы -> Finish -> OK
+Apply -> OK => Android Studio скачает и установит необходимые SDK платформы
+Окно " SDK Components Instaler" -> Finish -> OK
 ###### **4.2 Установка Build Tools и Platform Tools**
-Welcome to Android Studio → More Actions → SDK Manager -> SDK Tools:
+Запустить Android Studio -> откроется окно Welcome to Android Studio → More Actions → SDK Manager
+Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Tools:
 ✅ Android SDK Build-Tools -> Show Package Details -> выбрать 32.0.0
 ✅ Android SDK Platform-Tools
 ✅ Android Emulator
 ✅ Intel x86 Emulator Accelerator (HAXM installer)
-Apply → OK -> Finish -> OK
+Apply → OK
+Окно " SDK Components Instaler" -> Finish -> OK
 ###### **4.3. Проверка наличия и корректности установки SDK**
 Проверь каталог SDK: D:\progi\src\Android\Sdk\ -> Должны быть следующие подпапки:
 build-tools, platforms, platform-tools, emulator, system-images
 ###### **4.4. Проверка и настройка AVD**
-Запустить Android Studio -> откроется окно Welcome Android Studio -> More Actions → Device Manager -> выбрать созданный AVD -> ▶️ **Run**, чтобы убедиться, что эмулятор запускается
+Запустить Android Studio -> откроется окно Welcome to Android Studio -> More Actions → Device Manager -> выбрать созданный AVD -> ▶️ **Run**, чтобы убедиться, что эмулятор запускается
+Закрыть эмулятор -> PowerShell -> adb emu kill
 ##### **Этап 5. Установка Visual Studio Code**
 ###### **5.1. Скачивание и установка VS Code в D:\progi\src\VSCode**
 https://code.visualstudio.com/ -> Download for Windows → VSCodeUserSetup-x64-1.102.3
-Запустить установку -> путь установки: D:\progi\src\VSCode-> Далее -> Далее ->  ✅: Add to PATH, Register code as an editor for supported file types, Add "Open with Code" action to Windows Explorer -> установить -> завершить
+Запустить установку -> Далее -> выбор папки установки: D:\progi\src\VSCode-> Далее -> Далее ->  ✅: Add to PATH, Register code as an editor for supported file types, Add "Open with Code" action to Windows Explorer -> далее -> установить -> завершить
 ###### **5.2. Проверка переменной среды**
 cmd -> code --version -> 1.102.3
 ###### **5.3. Установка расширений Flutter и Dart**
@@ -115,15 +133,13 @@ cmd -> code --version -> 1.102.3
 ###### **6.1. Скачать Flutter SDK (Windows, без установки через Android Studio)**
 https://docs.flutter.dev/get-started/install/windows/mobile -> Download and install (ручная установка) => flutter_windows_3.22.1-stable.zip => распаковать в D:\progi\src\flutter
 в системную переменную среды Path -> D:\progi\src\flutter\bin
-Открыть VS Code → Terminal → New Terminal -> flutter doctor => команда lдолжна выполнится выполнится
-PowerShell -> flutter config --android-sdk "D:\progi\src\Android\Sdk" => указать Flutter путь к SDK
-PowerShell -> flutter doctor --android-licenses => принять лецензии
-###### **6.2. Проверка среды.**
+Открыть VS Code → Terminal → New Terminal ->
+flutter doctor --android-licenses => принять лицензии
 **6.2.1. Проверка системных переменных среды**
-PowerShell -> echo $env:PATH => D:\progi\src\flutter\bin
+echo $env:PATH => D:\progi\src\flutter\bin
 **6.2.2. Запуск и анализ flutter doctor**
-PowerShell -> dart --version => Dart SDK version: 3.8.1
-PowerShell -> flutter doctor
+dart --version => Dart SDK version: 3.8.1
+flutter doctor
 	[√] Flutter (Channel stable) - путь Flutter установлен
 	[√] Android toolchain - SDK найден, лицензии приняты
 	[√] Android Studio (version 2024.3.2) - Обнаружен и указан путь
