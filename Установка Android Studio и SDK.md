@@ -24,6 +24,7 @@
 	- %ANDROID_HOME%\cmdline-tools\latest\bin
 	- %JAVA_HOME%\bin
 	- D:\progi\src\flutter\bin
+	- D:\progi\src\Android\Sdk\platform-tools
 - проверка в cmd (после установки всего ПО):
 	- ==adb --version==
 	- ==flutter --version==
@@ -167,16 +168,25 @@ Git Bash → flutter devices => sdk gphone64 x86 64 (mobile) • emulator-5554 �
 ###### **8.3. Открыть проект в VS Code**
 File → Open Folder → D:\wirt\project\flutter_projects\test_app
 **Проверка Flutter Doctor** -> открыть терминал внутри проекта -> flutter doctor-> все пункты отмечены ✅
-###### **8.4. Запуск проекта на эмуляторе**
+###### **8.4. Запуск эмулятора**
+**8.4.1. Первый вариант**
+- В нижней панели VS Code → "No devices" → Выбери нужный AVD -> Start Pixel 5 module emulator (gold boot)
+**8.4.2. Второй вариант**
+- PowerShell -> flutter emulators => вернет ID -> Pixel_6
+- PowerShell -> flutter emulators --launch Pixel_6 - главный вариант
+**8.4.3. Третий вариант**
 - PowerShell -> cd "D:\progi\src\Android\Sdk\emulator"
 - PowerShell -> .\emulator.exe -avd Pixel_6
+Проверить список устройств ->  в новом PowerShell -> flutter devices => Устройство должно быть в списке -> sdk gphone64 x86_64 • emulator-5554 • android-x64 • Android 15 (API 35)
 ###### **8.5. Запуск проекта на эмуляторе**
-Git Bash → cd /d/wirt/project/flutter_projects/test_app
-Git Bash → flutter run
+- PowerShel → cd "D:\wirt\project\flutter_projects\test_app" - перейти в проект
+- PowerShel → flutter run - запустить проект на эмуляторе
 на эмуляторе появится классическое синее приложение Flutter с кнопкой "+".
 ###### **8.6. Проверка успешной сборки**
-**В терминале должно быть:**
+**В терминале PowerShel должно быть:**
+Launching lib\main.dart on sdk gphone64 x86_64 in debug mode...
 Running Gradle task 'assembleDebug'...
-Built build\app\outputs\flutter-apk\app-debug.apk.
-Syncing files to device Android SDK built for x86...
+√ Built build\app\outputs\flutter-apk\app-debug.apk.
+Installing build\app\outputs\flutter-apk\app-debug.apk...
+Syncing files to device sdk gphone64 x86_64...                     7.6s
 **А на эмуляторе — работающее приложение**
