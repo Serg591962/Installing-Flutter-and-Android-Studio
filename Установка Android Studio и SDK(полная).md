@@ -130,22 +130,43 @@ https://code.visualstudio.com/ -> Download for Windows → VSCodeUserSetup-x64-1
 cmd -> code --version -> 1.102.3
 ###### **5.3. Установка расширений Flutter и Dart**
 запустить VS Code -> Extensions (`Ctrl+Shift+X`) -> ввести: Flutter -> Dart подтянется автоматически -> install
+##### **Этап 5а. Установка Visual Studio 2022 (не путать с VS Code!)**
+###### **5а.1. Скачать установщик Visual Studio**
+- Перейти на официальный сайт: https://visualstudio.microsoft.com/ru/vs/community/ 
+- Нажать "Скачать" → Community 2022
+- Запустить установщик
+###### **5а.2. Выбрать рабочие нагрузки (Workloads)**
+На этапе выбора компонентов установить **обязательно**:
+- ✅ **Разработка классических приложений на C++** 
+- ✅ **Средства C++ CMake для Windows**
+⚙️ Дополнительно внизу:
+- Папка установки: D:\progi\src\Microsoft Visual Studio\2022\Community
+→ Нажать **Установить** → дождаться завершения
+Внести путь в PATH -> D:\progi\src\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX86\x86
+##### **5а.3. Проверка установки**
+- поиск -> Developer PowerShell for VS 2022 -> запуск -> cl -> Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35214 для x86
+- where cl => (Get-Command cl).Source => D:\progi\src\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX86\x86\cl.exe
 ##### **Этап 6. Установка Flutter SDK**
 ###### **6.1. Скачать Flutter SDK (Windows, без установки через Android Studio)**
 https://docs.flutter.dev/get-started/install/windows/mobile -> Download and install (ручная установка) => flutter_windows_3.22.1-stable.zip => распаковать в D:\progi\src\flutter
 в системную переменную среды Path -> D:\progi\src\flutter\bin
 Открыть VS Code → Terminal → New Terminal ->
 flutter doctor --android-licenses => принять лицензии
-**6.2.1. Проверка системных переменных среды**
+###### **6.2 Проверка системных переменных среды**
 echo $env:PATH => D:\progi\src\flutter\bin
-**6.2.2. Запуск и анализ flutter doctor**
+**6.2.1. Проверка работы Dart**
 dart --version => Dart SDK version: 3.8.1
+###### **6.3. Поддержка Windows Desktop в Flutter**
+Открыть VS Code → Terminal:
 flutter doctor
 	[√] Flutter (Channel stable) - путь Flutter установлен
 	[√] Android toolchain - SDK найден, лицензии приняты
 	[√] Android Studio (version 2024.3.2) - Обнаружен и указан путь
 	[√] Connected device (3 available) - эмуляторы и физические устройства Flutter видит и распознаёт корректно (аналог: [√] VS Code, [√] AVD/эмулятор)
-	[X] Visual Studio - develop Windows apps - пока не ставим так как не планируем делать Windows Desktop-приложения
+	[√] Visual Studio - develop Windows apps - для создания Windows Desktop-приложений
+6.3.1. Включение Windows-десктопа во Flutter
+Terminal -> flutter config --enable-windows-desktop
+Проверка: Terminal -> flutter devices => Windows (desktop) • windows • windows-x64 • Microsoft Windows 10 Pro 10.0.19045
 ##### **Этап 7. Проверка работы эмулятора AVD**
 **7.1. Убедиться, что AVD создаётся в D:\progi\src\android_avd, а не в C:\Users\User\.android.**
 PowerShell -> echo $Env:ANDROID_AVD_HOME => D:\progi\src\android_avd
@@ -220,4 +241,10 @@ PowerShel → adb emu kill
 **Автоматическая команда для корректного завершения Flutter-приложения и эмулятора:** -> taskkill /F /IM dart.exe /IM flutter.exe /IM java.exe; adb emu kill
 **Автоматическая команда для корректного завершения Flutter-приложения,эмулятора, VS Code:** -> Start-Process powershell -ArgumentList 'taskkill /F /IM dart.exe /IM flutter.exe /IM java.exe /IM Code.exe; adb emu kill' -WindowStyle Hidden; exit
 
-
+##### **✅ ДОПОЛНЕНИЕ К ЭТАПУ 8: Создание и запуск Windows-приложения**
+###### **8.10. Запуск Flutter-проекта как Windows-приложения**
+Перейти в папку проекта: powershell -> cd D:\wirt\project\flutter_projects\test_app
+Запустить проект на Windows: powershell -> flutter run -d windows => Windows-приложение — с синим экраном Flutter и кнопкой "+".
+8.11. Проверка сборки
+VS Code -> терминал -> flutter devices => Windows (desktop) • windows • windows-x64 • Microsoft Windows 10 Pro 10.0.19045
+8.11 Закрытие сборки. -> taskkill /F /PID 3900 /T; taskkill /F /IM dart.exe /T; taskkill /F /IM dartaotruntime.exe /T
