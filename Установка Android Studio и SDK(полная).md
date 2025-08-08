@@ -180,7 +180,7 @@ PowerShell -> echo $Env:ANDROID_AVD_HOME => D:\progi\src\android_avd
 	- PowerShell -> .\emulator.exe -avd Pixel_6 -> запустит эмулятор Pixel_6
 **7.4. Проверка во Flutter**
 Git Bash → flutter devices => sdk gphone64 x86 64 (mobile) • emulator-5554 • android-x64 • Android 15 (API 35) (emulator) -> эмулятор создан, запущен, распознан Flutter как устройство, API 35 (Android 15) поддерживается и активен
-##### 8. **Создание Flutter проекта в VS Code**
+##### **8. Создание Flutter проекта в VS Code**
 ###### **8.1. Проверка flutter и VS Code**
 Открыть VS Code -> Меню → Terminal → New Terminal -> flutter --version => не должно быть ошибок
 ###### **8.2. Инициализировать новый проект**
