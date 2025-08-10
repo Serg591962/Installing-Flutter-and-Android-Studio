@@ -145,7 +145,7 @@ cmd -> code --version -> 1.102.3
 Внести путь в PATH -> D:\progi\src\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX86\x86
 ##### **5а.3. Проверка установки**
 - поиск -> Developer PowerShell for VS 2022 -> запуск -> cl -> Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.44.35214 для x86
-- where cl => (Get-Command cl).Source => D:\progi\src\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX86\x86\cl.exe
+- where cl => CMD => D:\progi\src\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX86\x86\cl.exe
 ##### **Этап 6. Установка Flutter SDK**
 ###### **6.1. Скачать Flutter SDK (Windows, без установки через Android Studio)**
 https://docs.flutter.dev/get-started/install/windows/mobile -> Download and install (ручная установка) => flutter_windows_3.22.1-stable.zip => распаковать в D:\progi\src\flutter
