@@ -73,6 +73,8 @@ OpenJDK 17 (LTS) - полностью поддерживается Android Studi
 Next -> 
 Окно "Werify Setting" -> Next
 Окно "License Agreement" -> Accept -> Finish => Android Studio скачает SDK и установит всё в D:\progi\src\Android\Sdk -> Finish
+- Создайте ANDROID_HOME = D:\progi\src\Android\Sdk
+- Добавьте в Path запись %ANDROID_HOME%\platform-tools
 **3.3.2. Проверка установки SDK, Platform Tools, Emulator через SDK Manager**
 После завершения загрузки компонентов (может занять 2–5 мин), откроется окно Welcome to Android Studio -> More Actions → SDK Manager
 Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Platforms:
