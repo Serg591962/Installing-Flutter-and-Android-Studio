@@ -86,7 +86,8 @@ Next ->
 Apply -> OK
 Окно " SDK Components Instaler" -> Finish
 Окно "Languages&Frameworcs > Android SDC" -> Вкладка SDK Platforms: -> OK
-###### **3.4. Настройка среды AVD через переменную ANDROID_AVD_HOME**
+###### **3.4. Настройка среды AVD через переменную ANDROID_AVD_HOME**.
+AVD — это конфигурация (набор параметров), которую эмулятор использует для запуска виртуального устройства.
 Завершить все процессы Android Studio перед изменением переменной.
 Создай каталог для AVD - D:\progi\src\android_avd
 Создать переменную среды ANDROID_AVD_HOME - D:\progi\src\android_avd
